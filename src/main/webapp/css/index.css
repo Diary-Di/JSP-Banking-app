@@ -1,0 +1,32 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+}
+
+/* Main content container styles */
+.main-content {
+    margin-left: 250px; /* Make room for the sidebar */
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Main content page title */
+h1 {
+    color: #2196F3; /* A strong blue color for headings */
+}
+
+/* Mobile Responsive: When the screen is small, we collapse the sidebar */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Remove margin for mobile view */
+    }
+}
