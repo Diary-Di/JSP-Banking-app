@@ -16,6 +16,9 @@ public class Controller extends HttpServlet {
 
         // Map the page parameter to the corresponding JSP
         switch (page != null ? page : "") {
+            case "client":
+                contentPage = "client_page.jsp";
+                break;
             case "transfert":
                 contentPage = "transfert_page.jsp";
                 break;

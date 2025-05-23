@@ -7,6 +7,14 @@ const HomePage = {
         </div>`
 }
 
+const ClientPagePage = {
+    template: `
+        <div>
+            <h1>Client Page</h1>
+            <p>client page</p>
+        </div>`
+}
+
 const TransfertPage = {
     template: `
         <div>
@@ -48,6 +56,7 @@ const app = Vue.createApp({
     components: {
         Sidebar,  // Register Sidebar component
         HomePage,  // Register HomePage component
+        ClientPage,  // Register ClientPage component
         TransfertPage,  // Register TransfertPage component
         RetraitPage,  // Register RetraitPage component
         TransactionsPage  // Register TransactionsPage component

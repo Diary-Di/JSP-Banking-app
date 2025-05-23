@@ -8,6 +8,11 @@
             </a>
         </li>
         <li>
+            <a href="Controller?page=client" class="menu-link ${currentPage == 'client' ? 'active' : ''}" data-page="client">
+                <span class="menu-text">Client</span>
+            </a>
+        </li>
+        <li>
             <a href="Controller?page=transfert" class="menu-link ${currentPage == 'transfert' ? 'active' : ''}" data-page="transfert">
                 <span class="menu-text">Transfert</span>
             </a>

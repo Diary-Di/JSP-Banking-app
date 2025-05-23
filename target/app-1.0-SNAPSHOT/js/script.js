@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define SVG icon paths (mimicking "import")
     const icons = {
         home: 'images/home.svg',
+        client: 'images/client.svg',
         transfert: 'images/transfert.svg',
         retrait: 'images/retrait.svg',
         transactions: 'images/transactions.svg'
