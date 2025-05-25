@@ -7,6 +7,7 @@
     <title>Banking Application</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/client_page.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
