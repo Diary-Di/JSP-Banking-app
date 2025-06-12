@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="sidebar">
-    <h2>Menu</h2>
+    <h2>ééé</h2>
     <ul>
         <li>
             <a href="Controller?page=home" class="menu-link ${currentPage == 'home' ? 'active' : ''}" data-page="home">

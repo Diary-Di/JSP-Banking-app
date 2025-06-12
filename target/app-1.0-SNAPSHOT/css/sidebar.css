@@ -56,7 +56,7 @@ body {
     flex: 1;
 }
 
-.main-content {
+/*.main-content {
     margin-left: 270px;
     padding: 20px;
     width: calc(100% - 270px);

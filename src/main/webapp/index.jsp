@@ -7,17 +7,16 @@
     <title>Banking Application</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/client_page.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <!-- Sidebar -->
-        <jsp:include page="WEB-INF/pages/sidebar.jsp" />
+        <jsp:include page="WEB-INF/sidebar.jsp" />
         <!-- Main Content -->
         <div class="main-content">
             <c:set var="contentPage" value="${contentPage != null ? contentPage : 'home_page.jsp'}" />
-            <jsp:include page="WEB-INF/pages/${contentPage}" />
+            <jsp:include page="WEB-INF/${contentPage}" />
         </div>
     </div>
 </body>

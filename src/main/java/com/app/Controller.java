@@ -42,7 +42,7 @@ public class Controller extends HttpServlet {
         String ajax = request.getHeader("X-Requested-With");
         if ("XMLHttpRequest".equals(ajax)) {
             // For AJAX, include only the content JSP
-            request.getRequestDispatcher("/WEB-INF/pages/" + contentPage).include(request, response);
+            request.getRequestDispatcher("/WEB-INF/" + contentPage).include(request, response);
         } else {
             // For regular requests, forward to index.jsp
             request.getRequestDispatcher("/index.jsp").forward(request, response);
