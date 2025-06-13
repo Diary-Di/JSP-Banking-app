@@ -29,14 +29,14 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="employee" items="${employeeList}">
+                <c:forEach var="client" items="${clients}">
                     <tr>
-                        <td>${employee.id}</td>
-                        <td>${employee.name}</td>
-                        <td>${employee.email}</td>
-                        <td>${employee.department}</td>
-                        <td>${employee.role}</td>
-                        <td>${employee.status}</td>
+                        <td>${clients.numtel}</td>
+                        <td>${clients.nom}</td>
+                        <td>${clients.sexe}</td>
+                        <td>${clients.age}</td>
+                        <td>${clients.solde}</td>
+                        <td>${clients.mail}</td>
                         <td>
                             <a href="#" class="icon-btn" title="Modifier">
                                 <img src="${pageContext.request.contextPath}/images/edit.svg" alt="Edit" class="action-icon">
