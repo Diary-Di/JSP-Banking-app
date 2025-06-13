@@ -24,6 +24,12 @@ h2 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+.panel-header.active {
+    background-color: #d1e7dd; /* Example: light green */
 }
 
 .search-input {
@@ -33,6 +39,7 @@ h2 {
     border-radius: 4px;
     font-size: 15px;
 }
+
 
 .new-btn {
     background-color: #28a745;

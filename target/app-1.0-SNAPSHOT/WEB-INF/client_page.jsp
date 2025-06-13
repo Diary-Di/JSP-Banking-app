@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h2>Liste des employés</h2>
+    <h2>Liste des clients</h2>
 
     <div class="panel">
         <div class="panel-header">
