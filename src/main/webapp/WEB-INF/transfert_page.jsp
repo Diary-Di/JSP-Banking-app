@@ -20,25 +20,19 @@
             <thead>
                 <tr>
                     <th>Identifiant</th>
-                    <th>Envoyeur</th>
-                    <th>Récépteur</th>
-                    <th>Montant</th>
-                    <th>Date</th>
-                    <th>+ Retrait</th>
-                    <th>Raison</th>
+                    <th>Minimum</th>
+                    <th>Maximum</th>
+                    <th>Frais</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="transfert" items="${tranferts}">
+                <c:forEach var="Frais" items="${frais}">
                     <tr>
-                        <td>${transfert.id}</td>
-                        <td>${transfert.envoyeur}</td>
-                        <td>${transfert.recepteur}</td>
-                        <td>${transfert.montant}</td>
-                        <td>${transfert.date}</td>
-                        <td>${transfert.fr_retrait}</td>
-                        <td>${transfert.raison}</td>
+                        <td>${Frais.id}</td>
+                        <td>${Frais.minimum}</td>
+                        <td>${Frais.maximum}</td>
+                        <td>${Frais.frais}</td>
                         <td>
                             <a href="#" class="icon-btn" title="Modifier">
                                 <img src="${pageContext.request.contextPath}/images/edit.svg" alt="Edit" class="action-icon">
@@ -47,8 +41,7 @@
                                 <img src="${pageContext.request.contextPath}/images/delete.svg" alt="Delete" class="action-icon">
                             </a>
                         </td>
-                        
-                    </tr>
+                    
                 </c:forEach>
             </tbody>
         </table>
