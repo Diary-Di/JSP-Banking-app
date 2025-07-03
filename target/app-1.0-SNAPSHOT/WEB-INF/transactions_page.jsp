@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Static Data Table</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/client_page.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/transactions_page.css">
 </head>
 <body>
 
-    <h2>Liste des tranferts d'argents</h2>
+    <h2>Liste des transactions</h2>
 
     <div class="panel">
         <div class="panel-header">
-            <input type="text" id="searchInput" placeholder="Rechercher un numéro" class="search-input">
-            <button id="newBtn" class="new-btn">Nouveau</button>
+            <div class="top-section">
+                <input type="text" id="searchInput" placeholder="Rechercher un numéro" class="search-input">
+                <button id="newBtn" class="new-btn">Nouveau</button>
+            </div>
+        </div>
+
+        <!-- New panel for category buttons -->
+        <div class="panel-category">
+            <button id="filterBtn" class="category-btn">Transfert</button>
+            <button id="exportBtn" class="category-btn">Retrait</button>
         </div>
     
         <table border="1" cellpadding="10">

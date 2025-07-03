@@ -19,44 +19,45 @@ h2 {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Adjustments for panel-header to accommodate buttons */
 .panel-header {
     display: flex;
-    justify-content: flex-start; /* Align buttons to the left */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     background-color: #f4f4f4;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 .panel-header.active {
     background-color: #d1e7dd; /* Example: light green */
 }
 
-/* Toggle button styles */
-.toggle-btn {
-    background-color: #007bff; /* Blue background to match the table header */
-    color: white;
-    padding: 10px 18px;
-    border: none;
+.panel-category {
+    margin-top: 10px;
+    text-align: center; /* Adjust alignment as needed */
+}
+
+.search-input {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.category-btn {
+    background-color: white; /* Set background color to white */
+    color: black; /* Set text color to black */
+    padding: 10px 18px; /* Same padding as .new-btn */
+    border: none; /* Remove borders */
+    border-radius: 4px; /* Keep the rounded corners */
+    font-size: 16px; /* Same font size as .new-btn */
     cursor: pointer;
-    margin-left: 10px; /* Add spacing between buttons */
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.toggle-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-}
-
-.toggle-btn.active {
-    background-color: #28a745; /* Green background for active state */
-    font-weight: bold;
-    transform: scale(1.1); /* Slightly larger for emphasis */
+.category-btn:hover {
+    background-color: #f2f2f2; /* Optional: Add a light gray hover effect */
+    color: black; /* Keep text color black on hover */
 }
 
 .new-btn {
@@ -71,42 +72,6 @@ h2 {
 
 .new-btn:hover {
     background-color: #218838;
-}
-
-/* Modern toggle switch container */
-.toggle-switch {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Hide the radio buttons */
-.toggle-input {
-    display: none;
-}
-
-/* Style for the toggle labels */
-.toggle-label {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #007bff; /* Default blue background */
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* Active state for the toggle */
-.toggle-input:checked + .toggle-label {
-    background-color: #28a745; /* Green background for active state */
-    transform: scale(1.1); /* Slightly larger for emphasis */
-}
-
-/* Hover effect for the toggle labels */
-.toggle-label:hover {
-    background-color: #0056b3; /* Darker blue on hover */
 }
 
 table {
