@@ -60,6 +60,10 @@ h2 {
     color: black; /* Keep text color black on hover */
 }
 
+.category-btn.active {
+    border-bottom: 3px solid #007bff; /* Blue underline */
+}
+
 .new-btn {
     background-color: #28a745;
     color: white;

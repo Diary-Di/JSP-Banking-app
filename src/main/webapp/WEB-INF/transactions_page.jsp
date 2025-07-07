@@ -12,10 +12,8 @@
 
     <div class="panel">
         <div class="panel-header">
-            <div class="top-section">
-                <input type="text" id="searchInput" placeholder="Rechercher un numéro" class="search-input">
-                <button id="newBtn" class="new-btn">Nouveau</button>
-            </div>
+            <input type="text" id="searchInput" placeholder="Rechercher un numéro" class="search-input">
+            <button id="newBtn" class="new-btn">Nouveau</button>
         </div>
 
         <!-- New panel for category buttons -->
@@ -61,6 +59,8 @@
             </tbody>
         </table>
     </div>    
+
+    <script src="../js/script.js" defer></script>
 
 </body>
 </html>
