@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Static Data Table</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/transactions_page.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/frais_page.css">
 </head>
 <body>
 
-    <h2>Liste des tranferts d'argents</h2>
+    <h2>Tarifs de transactions</h2>
 
     <div class="panel">
         <div class="panel-header">
-            <input type="text" id="searchInput" placeholder="Rechercher un numéro" class="search-input">
             <button id="newBtn" class="new-btn">Nouveau</button>
         </div>
 
