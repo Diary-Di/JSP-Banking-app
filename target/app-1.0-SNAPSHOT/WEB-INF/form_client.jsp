@@ -1,49 +1,22 @@
-<!-- filepath: /d:/L3 project/JSP/Mobile_money/src/main/webapp/WEB-INF/pages/form_client.jsp -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Client Registration Form</title>
-</head>
-<body>
-    <h1>Client Registration Form</h1>
-    <form action="processClient.jsp" method="post">
-        <!-- Field 1: Full Name -->
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" name="fullName" required>
-        <br><br>
+<!-- form_client.jsp -->
+<div id="clientModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h3>Add Client</h3>
+        <form action="ajouterClient" method="post" class="modal-form">
+            <input type="text" name="numtel" placeholder="Phone" required>
+            <input type="text" name="nom" placeholder="Name" required>
+            <select name="sexe" required>
+                <option value="">Select Gender</option>
+                <option value="Homme">Male</option>
+                <option value="Femme">Female</option>
+            </select>
+            <input type="number" name="age" placeholder="Age" required>
+            <input type="number" step="0.01" name="solde" placeholder="Balance" required>
+            <input type="email" name="mail" placeholder="Email" required>
+            <button type="submit" class="submit-btn">Add</button>
+        </form>
+    </div>
+</div>
 
-        <!-- Field 2: Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
 
-        <!-- Field 3: Phone Number -->
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
-        <br><br>
-
-        <!-- Field 4: Address -->
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
-        <br><br>
-
-        <!-- Field 5: Date of Birth -->
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required>
-        <br><br>
-
-        <!-- Field 6: Gender -->
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select>
-        <br><br>
-
-        <!-- Submit Button -->
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>

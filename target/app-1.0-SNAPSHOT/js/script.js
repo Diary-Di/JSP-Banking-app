@@ -41,6 +41,9 @@ function loadContent(page) {
         .then(response => response.text())
         .then(data => {
             mainContent.innerHTML = data;
+
+            // Reinitialize JavaScript for dynamically loaded content
+            initializeDynamicContent();
         })
         .catch(error => {
             console.error('Error loading content:', error);
@@ -53,6 +56,34 @@ function setActiveLink(activeLink) {
         link.classList.remove('active');
     });
     activeLink.classList.add('active');
+}
+
+function initializeDynamicContent() {
+    // Reinitialize event listeners for dynamically loaded content
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+
+    // Use event delegation to handle the "newBtn" click
+    document.body.addEventListener('click', (event) => {
+        if (event.target && event.target.id === 'newBtn') {
+            console.log("New button clicked");
+            modal.style.display = 'flex'; // Show the modal
+        }
+    });
+
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            console.log("Close button clicked");
+            modal.style.display = 'none'; // Hide the modal
+        });
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            console.log("Clicked outside modal");
+            modal.style.display = 'none'; // Hide the modal when clicking outside
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {

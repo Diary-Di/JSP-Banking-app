@@ -49,6 +49,7 @@ h2 {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    z-index: 1000; /* Ensure button is above other elements */
 }
 
 .new-btn:hover {

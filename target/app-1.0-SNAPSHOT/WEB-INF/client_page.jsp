@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Static Data Table</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/client_page.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form_client.css">
 </head>
 <body>
 
@@ -45,12 +46,48 @@
                                 <img src="${pageContext.request.contextPath}/images/delete.svg" alt="Delete" class="action-icon">
                             </a>
                         </td>
-                        
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
     </div>    
+
+    <!-- Modal container -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <jsp:include page="form_client.jsp" />
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('modal');
+            const closeModal = document.getElementById('closeModal');
+
+            // Use event delegation to handle the "newBtn" click
+            document.body.addEventListener('click', (event) => {
+                if (event.target && event.target.id === 'newBtn') {
+                    console.log("New button clicked");
+                    modal.style.display = 'flex'; // Show the modal
+                }
+            });
+
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    console.log("Close button clicked");
+                    modal.style.display = 'none'; // Hide the modal
+                });
+            }
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    console.log("Clicked outside modal");
+                    modal.style.display = 'none'; // Hide the modal when clicking outside
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
