@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Define SVG icon paths (mimicking "import")
+    // Define SVG icon paths
     const icons = {
         home: 'images/home.svg',
         client: 'images/client.svg',
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         transactions: 'images/transactions.svg'
     };
 
-    // Add icons dynamically to menu links
+    // Add icons to menu links dynamically
     document.querySelectorAll('.menu-link').forEach(link => {
         const page = link.getAttribute('data-page');
         const iconSrc = icons[page];
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.src = iconSrc;
             icon.alt = `${page.charAt(0).toUpperCase() + page.slice(1)} Icon`;
             icon.className = 'menu-icon';
-            link.prepend(icon); // Add the icon before the text
+            link.prepend(icon);
         }
 
         link.addEventListener('click', (e) => {
@@ -28,8 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Initial content load
     loadContent('home');
     setActiveLink(document.querySelector('.menu-link[data-page="home"]'));
+
+    // Set category button toggle handler
+    initCategoryButtons();
 });
 
 function loadContent(page) {
@@ -41,9 +45,7 @@ function loadContent(page) {
         .then(response => response.text())
         .then(data => {
             mainContent.innerHTML = data;
-
-            // Reinitialize JavaScript for dynamically loaded content
-            initializeDynamicContent();
+            initializeDynamicContent(); // Reinitialize events for dynamic content
         })
         .catch(error => {
             console.error('Error loading content:', error);
@@ -59,43 +61,42 @@ function setActiveLink(activeLink) {
 }
 
 function initializeDynamicContent() {
-    // Reinitialize event listeners for dynamically loaded content
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-
-    // Use event delegation to handle the "newBtn" click
+    // Open modal on button click (delegated)
     document.body.addEventListener('click', (event) => {
         if (event.target && event.target.id === 'newBtn') {
-            console.log("New button clicked");
-            modal.style.display = 'flex'; // Show the modal
+            const modal = document.getElementById('modal');
+            if (modal) {
+                console.log("New button clicked");
+                modal.style.display = 'flex';
+            }
+        }
+
+        // Close modal if clicking the close button
+        if (event.target && event.target.id === 'closeModal') {
+            const modal = document.getElementById('modal');
+            if (modal) {
+                console.log("Close button clicked");
+                modal.style.display = 'none';
+            }
         }
     });
 
-    if (closeModal) {
-        closeModal.addEventListener('click', () => {
-            console.log("Close button clicked");
-            modal.style.display = 'none'; // Hide the modal
-        });
-    }
-
+    // Close modal if clicking outside of it
     window.addEventListener('click', (event) => {
-        if (event.target === modal) {
+        const modal = document.getElementById('modal');
+        if (modal && event.target === modal) {
             console.log("Clicked outside modal");
-            modal.style.display = 'none'; // Hide the modal when clicking outside
+            modal.style.display = 'none';
         }
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+function initCategoryButtons() {
     const categoryButtons = document.querySelectorAll(".category-btn");
-
     categoryButtons.forEach(button => {
         button.addEventListener("click", function () {
-            // Remove the active class from all buttons
             categoryButtons.forEach(btn => btn.classList.remove("active"));
-
-            // Add the active class to the clicked button
             this.classList.add("active");
         });
     });
-});
+}

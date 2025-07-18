@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Static Data Table</title>
+    <title>Liste des Clients</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/client_page.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form_client.css">
 </head>
@@ -23,9 +23,9 @@
                     <th>Téléphone</th>
                     <th>Nom</th>
                     <th>Sexe</th>
-                    <th>Age</th>
+                    <th>Âge</th>
                     <th>Solde</th>
-                    <th>Mail</th>
+                    <th>Email</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -40,10 +40,10 @@
                         <td>${clients.mail}</td>
                         <td>
                             <a href="#" class="icon-btn" title="Modifier">
-                                <img src="${pageContext.request.contextPath}/images/edit.svg" alt="Edit" class="action-icon">
+                                <img src="${pageContext.request.contextPath}/images/edit.svg" alt="Modifier" class="action-icon">
                             </a>
                             <a href="#" class="icon-btn" title="Supprimer">
-                                <img src="${pageContext.request.contextPath}/images/delete.svg" alt="Delete" class="action-icon">
+                                <img src="${pageContext.request.contextPath}/images/delete.svg" alt="Supprimer" class="action-icon">
                             </a>
                         </td>
                     </tr>
@@ -52,42 +52,26 @@
         </table>
     </div>    
 
-    <!-- Modal container -->
+    <!-- Fenêtre modale -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeModal">&times;</span>
-            <jsp:include page="form_client.jsp" />
+            <form action="ajouterClient" method="post" class="modal-form">
+                <h3>Ajouter un client</h3>
+                <input type="text" name="numtel" placeholder="Téléphone" required>
+                <input type="text" name="nom" placeholder="Nom" required>
+                <select name="sexe" required>
+                    <option value="">Sélectionner le sexe</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+                <input type="number" name="age" placeholder="Âge" required>
+                <input type="number" step="0.01" name="solde" placeholder="Solde" required>
+                <input type="email" name="mail" placeholder="Adresse email" required>
+                <button type="submit" class="submit-btn">Ajouter</button>
+            </form>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('modal');
-            const closeModal = document.getElementById('closeModal');
-
-            // Use event delegation to handle the "newBtn" click
-            document.body.addEventListener('click', (event) => {
-                if (event.target && event.target.id === 'newBtn') {
-                    console.log("New button clicked");
-                    modal.style.display = 'flex'; // Show the modal
-                }
-            });
-
-            if (closeModal) {
-                closeModal.addEventListener('click', () => {
-                    console.log("Close button clicked");
-                    modal.style.display = 'none'; // Hide the modal
-                });
-            }
-
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    console.log("Clicked outside modal");
-                    modal.style.display = 'none'; // Hide the modal when clicking outside
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
