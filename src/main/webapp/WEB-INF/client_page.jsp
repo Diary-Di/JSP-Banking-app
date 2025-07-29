@@ -58,20 +58,46 @@
             <span class="close-btn" id="closeModal">&times;</span>
             <form action="ajouterClient" method="post" class="modal-form">
                 <h3>Ajouter un client</h3>
-                <input type="text" name="numtel" placeholder="Téléphone" required>
-                <input type="text" name="nom" placeholder="Nom" required>
-                <select name="sexe" required>
+    
+                <!-- Téléphone (with prefix selector) -->
+                <label for="numtel">Téléphone</label>
+                <div class="phone-input-group">
+                    <select name="prefix" id="prefix" required>
+                        <option value="034">034</option>
+                        <option value="037">037</option>
+                    </select>
+                    <input type="text" name="numtel" id="numtel" placeholder="1234567" required>
+                </div>
+
+    
+                <!-- Nom -->
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom" placeholder="Nom" required>
+    
+                <!-- Sexe -->
+                <label for="sexe">Sexe</label>
+                <select name="sexe" id="sexe" required>
                     <option value="">Sélectionner le sexe</option>
                     <option value="Homme">Homme</option>
                     <option value="Femme">Femme</option>
                 </select>
-                <input type="number" name="age" placeholder="Âge" required>
-                <input type="number" step="0.01" name="solde" placeholder="Solde" required>
-                <input type="email" name="mail" placeholder="Adresse email" required>
+    
+                <!-- Âge -->
+                <label for="age">Âge</label>
+                <input type="number" name="age" id="age" placeholder="Âge" required>
+    
+                <!-- Solde -->
+                <label for="solde">Solde</label>
+                <input type="number" step="0.01" name="solde" id="solde" placeholder="Solde" required>
+    
+                <!-- Email -->
+                <label for="mail">Adresse email</label>
+                <input type="email" name="mail" id="mail" placeholder="Adresse email" required>
+    
                 <button type="submit" class="submit-btn">Ajouter</button>
             </form>
         </div>
     </div>
-
+    
 </body>
 </html>

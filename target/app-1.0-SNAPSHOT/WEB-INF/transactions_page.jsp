@@ -67,22 +67,21 @@
             <span class="close-btn" id="closeModal">&times;</span>
             <form action="ajouterClient" method="post" class="modal-form">
                 <h3>Ajouter un client</h3>
-                <input type="text" name="numtel" placeholder="Téléphone" required>
-                <input type="text" name="nom" placeholder="Nom" required>
-                <select name="sexe" required>
-                    <option value="">Sélectionner le sexe</option>
-                    <option value="Homme">Homme</option>
-                    <option value="Femme">Femme</option>
+                <input type="text" name="numtel" placeholder="Téléphone de l'envoyeur" required>
+                <input type="text" name="nom" placeholder="Téléphone du récépteur" required>
+                <input type="number" name="montant" placeholder="Montant à envoyer" required>
+                <select name="frais_retrait" placeholder="Frais de retrait" required>
+                    <option value="Oui">Oui</option>
+                    <option value="Non">Non</option>
                 </select>
-                <input type="number" name="age" placeholder="Âge" required>
-                <input type="number" step="0.01" name="solde" placeholder="Solde" required>
-                <input type="email" name="mail" placeholder="Adresse email" required>
+                
+                <input type="text" step="0.01" name="raison" placeholder="Raison" required>
                 <button type="submit" class="submit-btn">Ajouter</button>
             </form>
         </div>
     </div>
 
-    <script src="../js/script.js" defer></script>
+    
 
 </body>
 </html>
