@@ -9,7 +9,7 @@ public class DBUtil {
         try {
             Class.forName("org.postgresql.Driver");
             return DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/your_db_name", "postgres", "mj401");
+                "jdbc:postgresql://localhost:5432/mobile_money", "postgres", "mj401");
         } catch (ClassNotFoundException e) {
             throw new SQLException(e);
         }

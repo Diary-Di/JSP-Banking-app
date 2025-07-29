@@ -60,27 +60,39 @@ public class ClientDAO {
         return null;
     }
 
-    public void updateClient(Client client) {
-        try (Connection conn = DBUtil.getConnection()) {
-            PreparedStatement ps = conn.prepareStatement(
-                "UPDATE client SET nom_client=?, sexe_client=?, age_client=?, solde_client=?, mail_client=? WHERE numtel_client=?");
+    public int updateClient(Client client) {
+        String sql = "UPDATE client " +
+                     "SET nom_client=?, sexe_client=?, age_client=?, solde_client=?, mail_client=? " +
+                     "WHERE numtel_client=?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+    
             ps.setString(1, client.getNom_client());
             ps.setString(2, client.getSexe_client());
             ps.setInt(3, client.getAge_client());
             ps.setInt(4, client.getSolde_client());
             ps.setString(5, client.getMail_client());
             ps.setString(6, client.getNumtel_client());
-            ps.executeUpdate();
-        } catch (Exception e) { e.printStackTrace(); }
+    
+            return ps.executeUpdate(); // returns number of updated rows
+        } catch (Exception e) {
+            // Choose either to rethrow a checked SQLException or wrap:
+            throw new RuntimeException("Erreur lors de la mise à jour du client: " + client.getNumtel_client(), e);
+        }
     }
-
-    public void deleteClient(String numtel) {
-        try (Connection conn = DBUtil.getConnection()) {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM client WHERE numtel_client = ?");
+    
+    public int deleteClient(String numtel) {
+        String sql = "DELETE FROM client WHERE numtel_client = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+    
             ps.setString(1, numtel);
-            ps.executeUpdate();
-        } catch (Exception e) { e.printStackTrace(); }
+            return ps.executeUpdate(); // returns number of deleted rows
+        } catch (Exception e) {
+            throw new RuntimeException("Erreur lors de la suppression du client: " + numtel, e);
+        }
     }
+    
 }
 
 

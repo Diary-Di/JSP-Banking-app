@@ -1,2 +1,6 @@
 com\filter\EncodingFilter.class
 com\app\Controller.class
+com\example\crud\ClientDAO.class
+com\example\crud\Client.class
+com\example\crud\ClientServlet.class
+com\example\crud\DBUtil.class

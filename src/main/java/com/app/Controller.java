@@ -7,8 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.crud.ClientDAO;
+
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
+     private final ClientDAO clientDAO = new ClientDAO();
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String page = request.getParameter("page");
@@ -18,6 +22,8 @@ public class Controller extends HttpServlet {
         switch (page != null ? page : "") {
             case "client":
                 contentPage = "client_page.jsp";
+                // Provide data needed by client_page.jsp
+                request.setAttribute("clients", clientDAO.getAllClients());
                 break;
             case "transfert":
                 contentPage = "transfert_page.jsp";
